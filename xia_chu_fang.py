@@ -26,11 +26,15 @@ for num in range(1, 21):
         # 获取发布该信息的作者
         author = item.find('p', class_='author').text.replace('\n', '')
 
+        img_path = item.find('img').attrs.get('data-src')
+
+
         data_array.append({
             'title':title,
             'link':link,
             'ellipsis':ellipsis,
             'people_num':people_num,
+            'img_path':img_path,
             'author':author
         })
     # time.sleep(2)
