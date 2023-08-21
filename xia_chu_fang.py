@@ -9,7 +9,7 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36'}
 # 数据集合
 data_array = []
-for num in range(1, 11):
+for num in range(1, 21):
     url = url_template.format(num = num)
     res = requests.get(url, headers=headers)
     bs = BeautifulSoup(res.text, 'html.parser')
@@ -33,6 +33,6 @@ for num in range(1, 11):
             'people_num':people_num,
             'author':author
         })
-    time.sleep(2)
+    # time.sleep(2)
 with open('test.json', 'w') as  f:
     json.dump(data_array, f)

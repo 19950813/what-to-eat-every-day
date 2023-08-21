@@ -1,0 +1,61 @@
+<template>
+  <div class="breakfast">
+    <h2>今天吃什么？</h2>
+    <p>{{ breakfast }}</p>
+    <button @click="getBreakfast">换一换</button>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      breakfastList: [
+        "煎蛋+面包+牛奶",
+        "燕麦片+牛奶+水果",
+        "豆浆+油条+花卷",
+        "牛肉面+鸡蛋",
+        "鸡蛋灌饼+豆浆",
+        "馄饨+豆浆",
+        "沙拉+面包+果汁",
+        "牛奶+酸奶+面包",
+      ],
+      breakfast: "",
+    };
+  },
+  methods: {
+    getBreakfast() {
+      const randomIndex = Math.floor(Math.random() * this.breakfastList.length);
+      this.breakfast = this.breakfastList[randomIndex];
+    },
+  },
+  mounted() {
+    this.getBreakfast();
+  },
+};
+</script>
+
+<style scoped="">
+.breakfast {
+  text-align: center;
+  margin: 20px;
+}
+h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+p {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>
